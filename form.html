@@ -1,0 +1,44 @@
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function(){
+        $("#form").on('submit', function(){
+            var name = $("#name").val();
+            var price = $("#price").val();
+
+            var dataString = 'name=' + name + '&price=' + price;
+            if(name=='' || price==''){
+                alert("Please fill in all fields");
+            }else{
+                // Ajax code to submit form.
+                $.ajax({
+                    type: "POST",
+                    url: "/api/create.php",
+                    data: dataString,
+                    cache: false,
+                    success: function(result){
+                        location.reload(true);
+                        //alert(result);
+                    }
+               });
+            }
+            return false;
+        });
+    });
+</script>
+
+<form id="form" action="" method="post">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" id="name"/>
+    </div>
+    <div>
+        <label>Price</label>
+        <input type="text" name="price" id="price"/>
+    </div>
+    <br/>
+    <div>
+        <input type="submit" name="submit" value="Submit"/>
+    </div>
+</form>

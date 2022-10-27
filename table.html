@@ -1,0 +1,28 @@
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script>
+    jQuery( document ).on('submit_sucess',
+        function ( event, response ){
+            read();
+    });
+    jQuery ( document ).ready(function( $ ){
+        read();
+    });
+    function getReadUrl(){
+        var params = new URLSearchParams(window.location.search);
+        var url = "/api/read.php"
+        if(params.has('id')) {
+            url = url + "?id=" + params.get('id');
+        }
+        return url;
+    }
+    
+    function read(){
+        var url = getReadUrl();
+        $.get( url, function ( data ){
+            document.getElementById("records").innerHTML = data;
+        });
+    }
+</script>
+<table id="records"></table> 
