@@ -5,4 +5,5 @@
 	$sql = "insert into comment_table (comment, p_id) values ('$comment', '$id')";
 	$conn->query($sql);
 	$conn->close();
+	header("location: /");
 ?>
