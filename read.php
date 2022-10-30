@@ -8,6 +8,7 @@
 			echo '<tr><td colspan="3"><form action="/api/update.php" method="POST">';
 			echo '<input type="text" name="name" value="' . $row['name'] . '">';
 			echo '<input type="text" name="price" value="' . $row['price'] . '">';
+			echo '<a href="/"> <input type="button" value="Cancel" /></a>';
 			echo '<input type="submit" value="Save">';
 			echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
 			echo "</form></td></tr>";
@@ -15,6 +16,7 @@
 			echo '<tr><td colspan="3"><form action="/api/comment.php" method="POST">';
 			echo '<input type="text" name="name" value="' . $row['name'] . '" disabled>';
 			echo '<input type="text" name="comment" value="">';
+			echo '<a href="/"> <input type="button" value="Cancel" /></a>';
 			echo '<input type="submit" value="Comment">';
 			echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
 			echo "</form></td></tr>";
